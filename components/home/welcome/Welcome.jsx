@@ -42,26 +42,26 @@ const Welcome = () => {
             style={styles.searchBtnImage}
           />
         </TouchableOpacity>
+      </View>
 
-        <View style={styles.tabsContainer}>
-          <FlatList
-            data={jobTypes}
-            keyExtractor={(item) => item}
-            contentContainerStyle={{ columnGap: SIZES.small }}
-            horizontal
-            renderItem={({ item }) => (
-              <TouchableOpacity
-                style={styles.tab(activeJobType, item)}
-                onPress={() => {
-                  setActiveJobType(item.type);
-                  router.push(`/search/${item}`);
-                }}
-              >
-                <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
-              </TouchableOpacity>
-            )}
-          />
-        </View>
+      <View style={styles.tabsContainer}>
+        <FlatList
+          data={jobTypes}
+          keyExtractor={(item) => item}
+          contentContainerStyle={{ columnGap: SIZES.small }}
+          horizontal
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              style={styles.tab(activeJobType, item)}
+              onPress={() => {
+                setActiveJobType(item.type);
+                router.push(`/search/${item}`);
+              }}
+            >
+              <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
+            </TouchableOpacity>
+          )}
+        />
       </View>
     </View>
   );
